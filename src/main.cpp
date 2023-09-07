@@ -468,13 +468,13 @@ class $modify(GJGarageLayer){
 		}
 	}
 
-	/*void showBlackCircleWave(){ //todo add these
-		
+	void showBlackCircleWave(){
+		//do nothing
 	}
 
-	void showCircleWave(){ //todo add these
-		
-	}*/
+	void showCircleWave(){
+		//do nothing
+	}
 
 	void onPlayerIcon(CCObject* param_1){
 		if (is2ndPlayer) {
