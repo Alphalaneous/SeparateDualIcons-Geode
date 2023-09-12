@@ -41,6 +41,7 @@
 
 # Ignore build folders
 **/build
+out/
 
 # Workspace files are user-specific
 *.sublime-workspace
@@ -48,6 +49,10 @@
 # ILY vscode
 **/.vscode
 .idea/
+
+# Visual Studio
+.vs
+CMakeSettings.json
 
 # clangd
 .cache/
