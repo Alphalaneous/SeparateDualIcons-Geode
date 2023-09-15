@@ -24,7 +24,7 @@ public:
     static void saveIcons();
 
     template<typename O, typename T>
-    static T getFromWidth(CCObject* obj, float width, int index) {
+    static T getFromObjectContentSizeWidthBetween(CCObject* obj, float widthS, float widthE, int index) {
         CCObject* pObj = nullptr;
 
         int idx = 0;
@@ -36,7 +36,7 @@ public:
             T obj = dynamic_cast<T>(pObj);
 
             if (instanceof<T>(obj)) {
-                if (objWidth == width) {
+                if (objWidth > widthS && objWidth < widthE) {
                     if (idx == index) return obj;
                     idx++;
                 }

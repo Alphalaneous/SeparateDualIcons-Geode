@@ -8,11 +8,11 @@ class $modify(GJGarageLayer) {
 
 		IconData::is2ndPlayer = false;
 
-		CCSprite* unlockTxt = ExtraStuff::getFromWidth<CCLayer*, CCSprite*>(this, 105.750, 0);
+		CCSprite* unlockTxt = ExtraStuff::getFromObjectContentSizeWidthBetween<CCLayer*, CCSprite*>(this, 90, 120, 0);
 		unlockTxt->setVisible(false);
 
-		CCSprite* selectSpriteP1primary = ExtraStuff::getFromWidth<CCLayer*, CCSprite*>(this, 38, 0);
-		CCSprite* selectSpriteP1secondary = ExtraStuff::getFromWidth<CCLayer*, CCSprite*>(this, 38, 1);
+		CCSprite* selectSpriteP1primary = ExtraStuff::getFromObjectContentSizeWidthBetween<CCLayer*, CCSprite*>(this, 30, 40, 0);
+		CCSprite* selectSpriteP1secondary = ExtraStuff::getFromObjectContentSizeWidthBetween<CCLayer*, CCSprite*>(this, 30, 40, 1);
 
 		selectSpriteP1primary->setColor({ 255, 175, 0 });
 		selectSpriteP1secondary->setColor({ 255, 175, 0 });
