@@ -24,7 +24,7 @@ public:
     static void saveIcons();
 
     template<typename O, typename T>
-    static T getFromObjectContentSizeWidthBetween(CCObject* obj, float widthS, float widthE, int index) {
+    static T getFromObjectContentSizeBetween(CCObject* obj, float widthS, float widthE, float heightS, float heightE, int index) {
         CCObject* pObj = nullptr;
 
         int idx = 0;
@@ -32,11 +32,12 @@ public:
         CCARRAY_FOREACH(dynamic_cast<O>(obj)->getChildren(), pObj) {
             CCNode* currentNode = (CCNode*)pObj;
             float objWidth = currentNode->getContentSize().width;
+            float objHeight = currentNode->getContentSize().height;
 
             T obj = dynamic_cast<T>(pObj);
 
             if (instanceof<T>(obj)) {
-                if (objWidth > widthS && objWidth < widthE) {
+                if (objWidth > widthS && objWidth < widthE && objHeight > heightS && objHeight < heightE) {
                     if (idx == index) return obj;
                     idx++;
                 }
@@ -45,24 +46,6 @@ public:
         return nullptr;
     }
 
-    template<typename O, typename T>
-    static T getFromObjectIndex(CCObject* obj, int index) {
-        CCObject* pObj = nullptr;
-
-        int idx = 0;
-
-        CCARRAY_FOREACH(dynamic_cast<O>(obj)->getChildren(), pObj) {
-            CCNode* currentNode = (CCNode*)pObj;
-
-            T obj = dynamic_cast<T>(pObj);
-
-            if (instanceof<T>(obj)) {
-                if (idx == index) return obj;
-                idx++;
-            }
-        }
-        return nullptr;
-    }
     static void setIconColor(GJGarageLayer* self, int ID, bool primary, bool isP2);
     static void setIcon(GJGarageLayer* self, IconType type, int ID, bool changeIcon, bool isP2);
     static void setPlayerColor(PlayerObject* playerObject);

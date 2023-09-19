@@ -254,7 +254,7 @@ void ExtraStuff::setSelectorPosColors(GJGarageLayer* page, bool isP2) {
             if (listButtonBar) {
 
                 BoomScrollLayer* boomScrollLayer = reinterpret_cast<BoomScrollLayer*>(listButtonBar->getChildren()->objectAtIndex(0));
-                CCLayer* extendedLayer = getFromObjectIndex<CCLayer*, CCLayer*>(boomScrollLayer, 0);
+                CCLayer* extendedLayer = reinterpret_cast<CCLayer*>(boomScrollLayer->getChildren()->objectAtIndex(0));
 
                 int posInPage = 0;
                 int pageNum = 0;

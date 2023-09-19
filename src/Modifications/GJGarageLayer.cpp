@@ -8,11 +8,11 @@ class $modify(GJGarageLayer) {
 
 		IconData::is2ndPlayer = false;
 
-		CCSprite* unlockTxt = ExtraStuff::getFromObjectContentSizeWidthBetween<CCLayer*, CCSprite*>(this, 90, 120, 0);
+		CCSprite* unlockTxt = ExtraStuff::getFromObjectContentSizeBetween<CCLayer*, CCSprite*>(this, 90, 120, 15, 20, 0);
 		unlockTxt->setVisible(false);
 
-		CCSprite* selectSpriteP1primary = ExtraStuff::getFromObjectContentSizeWidthBetween<CCLayer*, CCSprite*>(this, 30, 40, 0);
-		CCSprite* selectSpriteP1secondary = ExtraStuff::getFromObjectContentSizeWidthBetween<CCLayer*, CCSprite*>(this, 30, 40, 1);
+		CCSprite* selectSpriteP1primary = reinterpret_cast<CCSprite*>(this->getChildByID("color-1-cursor"));
+		CCSprite* selectSpriteP1secondary = reinterpret_cast<CCSprite*>(this->getChildByID("color-2-cursor"));
 
 		selectSpriteP1primary->setColor({ 255, 175, 0 });
 		selectSpriteP1secondary->setColor({ 255, 175, 0 });
@@ -28,7 +28,6 @@ class $modify(GJGarageLayer) {
 
 		selectSpriteP2primary->setScale(0.8f);
 		selectSpriteP2secondary->setScale(0.8f);
-
 
 		selectSpriteP2primary->setTag(16549);
 		selectSpriteP2secondary->setTag(16550);
@@ -276,6 +275,7 @@ class $modify(GJGarageLayer) {
 		GaragePage* deathEffectPage = reinterpret_cast<GaragePage*>(this->getChildByID("death-effect-selection-menu"));
 		ExtraStuff::setSelectorPosIcons(deathEffectPage, true);
 		ExtraStuff::setSelectorPosIcons(deathEffectPage, false);
+
 
 		return true;
 	}
